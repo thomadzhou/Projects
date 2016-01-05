@@ -1,0 +1,21 @@
+ List<RailwayProject.Entities.DataAnalyze> list = from a in db.TestData
+                       join b in db.TestObject on a.object_id equals b.object_id
+                       join Organization1 in db.Organization on a.org_id equals Organization1.OrgId
+                       join Organization2 in db.Organization on Organization1.ParentId equals Organization2.org_id
+                       join Organization3 in db.Organization on Organization2.ParentId equals Organization3.org_id
+                       join Organization4 in db.Organization on Organization3.ParentId equals Organization4.org_id
+                       join indexResult in db.IndexResult on a.data_id equals indexResult.data_id
+                       select new  RailwayProject.Entities.DataAnalyze
+                       {
+                           a.data_id
+                       };
+					   
+List<RailwayProject.Entities.DataAnalyze> list = from a in db.TestData
+前面这段改成       
+var list = from a in db.TestData
+后面改成
+ select new  
+{
+ a.data_id
+};
+然后用list.tolist()一下 
