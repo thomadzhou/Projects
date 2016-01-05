@@ -10,6 +10,7 @@
                            a.data_id
                        };
 					   
+					   
 List<RailwayProject.Entities.DataAnalyze> list = from a in db.TestData
 前面这段改成       
 var list = from a in db.TestData
