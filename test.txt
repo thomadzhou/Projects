@@ -26,5 +26,6 @@ public class AutoPouring
         public string Jname { get; set; }
         public decimal J { get; set; }
         public decimal TotalRate { get; set; }
+		public decimal
     }
 	
