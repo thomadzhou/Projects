@@ -1,0 +1,11 @@
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Debug\WebApi.Data.dll.config
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Debug\WebApi.Data.dll
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Debug\WebApi.Data.pdb
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Debug\EntityFramework.dll
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Debug\EntityFramework.xml
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Programs\C_Sharp\WebApi\WebApi.Data\obj\Debug\WebApi.Data.csprojResolveAssemblyReference.cache
+D:\Programs\C_Sharp\WebApi\WebApi.Data\obj\Debug\WebApi.Data.dll
+D:\Programs\C_Sharp\WebApi\WebApi.Data\obj\Debug\WebApi.Data.pdb
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Debug\zh-Hans\EntityFramework.resources.dll

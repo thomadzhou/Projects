@@ -1,0 +1,10 @@
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Release\WebApi.Data.dll.config
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Release\WebApi.Data.dll
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Release\WebApi.Data.pdb
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Release\EntityFramework.dll
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Release\EntityFramework.xml
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Release\EntityFramework.SqlServer.xml
+D:\Programs\C_Sharp\WebApi\WebApi.Data\obj\Release\WebApi.Data.dll
+D:\Programs\C_Sharp\WebApi\WebApi.Data\obj\Release\WebApi.Data.pdb
+D:\Programs\C_Sharp\WebApi\WebApi.Data\bin\Release\zh-Hans\EntityFramework.resources.dll
