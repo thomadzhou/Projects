@@ -28,27 +28,56 @@
             $('#endtime').datepicker({
             })
 			
-        })
+		})
+		function checknum(num) {
+		    if (isNaN(num)) {
+		        alert("請輸入數字!");
+		        return false;
+		    }
+		    else
+		        return true;
+		}
     </script>
     <div id="body">
         <section style="line-height:25px">
             <h2>添加記錄</h2>
-            <span class="sp">配料日期</span> <input id="resin0" type="text"  /><label id="timealert" style="color:red"></label><br />
-            <span class="sp">ResinNO</span> <input id="resin1" type="text" /><label id="resinalert" style="color:red"></label><br />
-            <span class="sp">SetRate</span><input type="text" name="" id="resin2"><br />
-            <span class="sp">Aname</span>     <input type="text" name="" id="resin3"><br />
-            <span class="sp">A</span>     <input type="text" name="" id="resin4"><br />
-            <span class="sp">Bname</span>     <input type="text" name="" id="resin5"><br />
-            <span class="sp">B</span>     <input type="text" name="" id="resin6"><br />
-            <input type="button" value="添加" id="addItem">
-        </section>   
+        <span class="sp">組織ID:</span><input id="resin1" type="text" /><span class="sp"></span><span class="sp">批號:</span><input id="resin3" type="text" /><br />
+        <span class="sp">配方:</span><input id="resin4" type="text" /><span class="sp"></span><span class="sp">機台號碼:</span><input id="resin2" type="text" /><br />
+        <span class="sp">配料日期:</span><input id="resin0" type="text" /><label id="timealert" style="color:red"></label><br />
+        <span class="sp">糊劑:</span><input id="resin5" type="text" /><label id="resinalert" style="color:red"></label><br />
+        <span class="sp">摘要:</span><input type="text" name="" id="resin6"><br />
+        <span class="sp">批量:</span><input type="text" name="tt" id="resin7" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+        <span class="sp">Aname</span><input type="text" name="" id="resin8"><span class="sp"></span>
+        <span class="sp">A數量</span><input type="text" name="b" id="resin9" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+        <span class="sp">Bname</span><input type="text" name="" id="resin10"><span class="sp"></span>
+        <span class="sp">B數量</span><input type="text" name="num" id="resin11" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+            <span class="sp">Cname</span><input type="text" name="" id="resin12"><span class="sp"></span>
+            <span class="sp">C數量</span><input type="text" name="num" id="resin13" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+            <span class="sp">Dname</span><input type="text" name="" id="resin14"><span class="sp"></span>
+            <span class="sp">D數量</span><input type="text" name="num" id="resin15" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+            <span class="sp">Ename</span><input type="text" name="" id="resin16"><span class="sp"></span>
+            <span class="sp">E數量</span><input type="text" name="num" id="resin17" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+            <span class="sp">Fname</span><input type="text" name="" id="resin18"><span class="sp"></span>
+            <span class="sp">F數量</span><input type="text" name="num" id="resin19" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+            <span class="sp">Gname</span><input type="text" name="" id="resin20"><span class="sp"></span>
+            <span class="sp">G數量</span><input type="text" name="num" id="resin21" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+            <span class="sp">Hname</span><input type="text" name="" id="resin22"><span class="sp"></span>
+            <span class="sp">H數量</span><input type="text" name="num" id="resin23" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+            <span class="sp">Iname</span><input type="text" name="" id="resin24"><span class="sp"></span>
+            <span class="sp">I數量</span><input type="text" name="num" id="resin25" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+            <span class="sp">Jname</span><input type="text" name="" id="resin26"><span class="sp"></span>
+            <span class="sp">J數量</span><input type="text" name="num" id="resin27" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+            <span class="sp">Kname</span><input type="text" name="" id="resin28"><span class="sp"></span>
+            <span class="sp">K數量</span><input type="text" name="num" id="resin29" onkeyup="if (!checknum(this.value)) this.value = null;"><br />
+        <input type="button" value="添加" id="addItem">
+</section>   
         <section style="line-height:25px">
             <br />
             <br />
             <h2>查詢修改刪除記錄</h2>
             <span class="sp">配料日期起</span> <input id="begtime" type="text" class="date_picker" /><label id="begalert" style="color:red"></label><br />
             <span class="sp">配料日期迄</span> <input id="endtime" type="text" class="date_picker" /><label id="endalert" style="color:red"></label><br />
-            <span class="sp">ResinNO</span> <input id="resin" type="text" /><br />
+            <span class="sp">糊劑:</span> <input id="resin" type="text" /><br />
             <input type="button" value="查詢" id="showItem" />
         </section>
     </div>
@@ -69,15 +98,16 @@
                     $("#autopouringTable").find("tr:gt(0)").remove();
                     $.each(data, function (key, val) {
                         var tableRow = '<tr> ' +
+                                        '<td nowrap><input type="button" name="btnUpdate" value="修改" /> <input type="button" name="btnDelete" value="删除" id=' + val.ID + ' /></td>' +
                                         '<td>' + val.ID + '</td>' +
                                         addtd(val.organization_id) +
-                                        addtd(val.machine_no) +
                                         addtd(val.batch_job) +
-                                        addtd(val.batch_item_name) +
+                                        addtd(val.machine_no) +
                                         addtd(val.batch_item_std) +
+                                        addtd(val.batch_item_name) +
                                         addtd(val.batch_item_desc) +
+                                        addtd(val.stop_time.replace("T", " ")) +
                                         addtd(val.batch_qty) +
-                                        addtd(val.stop_time.replace("T"," ")) +
                                         addtd(val.pipe_A_name) +
                                         addtd(val.pipe_A_qty) +
                                         addtd(val.pipe_B_name) +
@@ -100,8 +130,7 @@
                                         addtd(val.pipe_J_qty) +
                                         addtd(val.pipe_K_name) +
                                         addtd(val.pipe_K_qty) +
-                                        '<td nowrap><input type="button" name="btnUpdate" value="修改" /> <input type="button" name="btnDelete" value="删除" id=' + val.SpcID + ' /></td>' +
-                                        '</tr>';
+                                         '</tr>';
                         $('#autopouringTable').append(tableRow);
                     });
                     $("input[name='btnUpdate']").click(OnUpdate);
@@ -120,32 +149,38 @@
     <br />
     <table id="autopouringTable" cellpadding="2" >
         <tr>
+            <th width=5%>Actions</th>
             <th width=2%>ID</th>
-            <th width=9%>取樣時間</th>
-            <th nowrap>樹脂編號</th>
-            <th nowrap>設定量</th>
-            <th>Aname</th>
-            <th>A</th>
-            <th>Bname</th>
-            <th>B</th>
-            <th>Cname</th>
-            <th>C</th>
-            <th>Dname</th>
-            <th>D</th>
+            <th >組織ID</th>
+            <th nowrap width=7%>批號</th>
+            <th >機台號碼</th>
+            <th>配方</th>
+            <th width=4%>糊劑</th>
+            <th>摘要</th>
+            <th width=9%>配料時間</th>
+            <th>批量</th>
+            <th width=4%>Aname</th>
+            <th>A數量</th>
+            <th width=3%>Bname</th>
+            <th>B數量</th>
+            <th width=3%>Cname</th>
+            <th>C數量</th>
+            <th width=3%>Dname</th>
+            <th>D數量</th>
             <th>Ename</th>
-            <th>E</th>
+            <th>E數量</th>
             <th>Fname</th>
-            <th>F</th>
+            <th>F數量</th>
             <th>Gname</th>
-            <th>G</th>
+            <th>G數量</th>
             <th>Hname</th>
-            <th>H</th>
+            <th>H數量</th>
             <th>Iname</th>
-            <th>I</th>
+            <th>I數量</th>
             <th>Jname</th>
-            <th>J</th>
-            <th>總量</th>
-            <th width=6%>Actions</th>
+            <th>J數量</th>
+            <th>Kname</th>
+            <th>K數量</th>
         </tr>
     </table>
 
@@ -159,22 +194,32 @@
             var sampletime = $("#resin0").val().trim();
             if (sampletime == "") { document.all.timealert.innerText = "* 取樣時間不能為空!"; return }
             else { document.all.timealert.innerText = ""; }
-            var resinNO = $("#resin1").val().trim();
-            if (resinNO == "") { document.all.resinalert.innerText = "* 樹脂編號不能為空!"; return }
+            var resinNO = $("#resin5").val().trim();
+            if (resinNO == "") { document.all.resinalert.innerText = "* 樹脂不能為空!"; return }
             else { document.all.resinalert.innerText = ""; }
-            //var data = '{"SampleTimes":"' + sampletime + '","ResinNo":"' + resinNO + '","SetRate":"' + setrate + '","Aname":"' + aname + '","A":"' + a + '","Bname":"' + bname + '","B":"' + b + '"}';
             var data = '{"';
-            var arrObj = new Array("SampleTimes", "ResinNo", "SetRate", "Aname", "A", "Bname", "B", "Cname");
-            var arrVal = new Array(24);
-            for (var i = 0; i < 7; i++) {
+            var arrObj = new Array("stop_time", "organization_id", "machine_no", "batch_job", "batch_item_std", "batch_item_name", "batch_item_desc",
+                "batch_qty" , "pipe_A_name" , "pipe_A_qty"
+                , "pipe_B_name" , "pipe_B_qty"
+                , "pipe_C_name" , "pipe_C_qty"
+                , "pipe_D_name" , "pipe_D_qty"
+                , "pipe_E_name" , "pipe_E_qty"
+                , "pipe_F_name" , "pipe_F_qty"
+                , "pipe_G_name" , "pipe_G_qty"
+                , "pipe_H_name" , "pipe_H_qty"
+                , "pipe_I_name" , "pipe_I_qty"
+                , "pipe_J_name" , "pipe_J_qty"
+                , "pipe_K_name" , "pipe_K_qty");
+            var arrVal = new Array(30);
+            for (var i = 0; i < 30; i++) {
                 arrVal[i] = $("#resin" + i ).val().trim();
             }
-            for (var i = 0; i < 7; i++) {
+            for (var i = 0; i < 30; i++) {
                 switch (i) {
                     case 0:
                         data = data + arrObj[i] + '":"' + arrVal[i] + '"';
                         break;
-                    case 6:
+                    case 29:
                         if (arrVal[i] != "")
                             data = data + ',"' + arrObj[i] + '":"' + arrVal[i] + '"}';
                         else
@@ -194,14 +239,10 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
                 success: function (results) {
-                    $("#sampletime").val('');
-                    $("#resinNo").val('');
-                    $("#setrate").val('');
-                    $("#aname").val('');
-                    $("#a").val('');
-                    $("#bname").val('');
-                    $("#b").val('');
-                    //$.getJSON("http://localhost:23735/api/customers", LoadCustomers);
+                    for (var i=0;i<30;i++)
+                    {
+                        $("#resin" + i).val('');
+                    }
                     alert(results);
                 }
             }).fail(
@@ -213,14 +254,26 @@
         function OnUpdate(evt) {
 
             var input, strVal;
-            var spcId = $(this).parent().parent().children().get(0).innerHTML;
+            var spcId = $(this).parent().parent().children().get(1).innerHTML;
             //ie瀏覽器才有用,暈
             //var obj = new ActiveXObject("Scripting.Dictionary");
-            var arrObj = new Array("SampleTimes", "ResinNo", "SetRate", "Aname", "A", "Bname", "B", "Cname", "C", "Dname", "D", "Ename", "E", "Fname", "F", "Gname", "G", "Hname", "H", "Iname", "I", "Jname", "J", "TotalRate");
-            var arrVal = new Array(24);
-            for (var i = 0; i < 24;i++)
+            var arrObj = new Array("organization_id", "batch_job", "machine_no", "batch_item_std", "batch_item_name",
+                "batch_item_desc", "stop_time", "batch_qty",
+                "pipe_A_name", "pipe_A_qty"
+                , "pipe_B_name", "pipe_B_qty"
+                , "pipe_C_name", "pipe_C_qty"
+                , "pipe_D_name", "pipe_D_qty"
+                , "pipe_E_name", "pipe_E_qty"
+                , "pipe_F_name", "pipe_F_qty"
+                , "pipe_G_name", "pipe_G_qty"
+                , "pipe_H_name", "pipe_H_qty"
+                , "pipe_I_name", "pipe_I_qty"
+                , "pipe_J_name", "pipe_J_qty"
+                , "pipe_K_name", "pipe_K_qty");
+            var arrVal = new Array(30);
+            for (var i = 0; i < 30;i++)
             {
-                input = $($(this).parent().parent().children().get(1+i)).find("input");
+                input = $($(this).parent().parent().children().get(2+i)).find("input");
                 //input.removeAttr("disabled");
                 strVal = input.val();
                 arrVal[i] = strVal;
@@ -229,13 +282,13 @@
             
             var data = '{"';
             i = 0;
-            for (i = 0; i < 24; i++)
+            for (i = 0; i < 30; i++)
             {
                 switch (i) {
                     case 0:
                         data = data + arrObj[i] + '":"' + arrVal[i] + '"';
                         break;
-                    case 23:
+                    case 29:
                         if (arrVal[i] != "")
                             data = data + ',"' + arrObj[i] + '":"' + arrVal[i] + '"}';
                         else
@@ -264,7 +317,7 @@
             });
         }
         function OnDelete(evt) {
-            var spcId = $(this).parent().parent().children().get(0).innerHTML;
+            var spcId = $(this).parent().parent().children().get(1).innerHTML;
             //var data = '{"id":"' + customerId + '"}';
             //var row = $(this).parent().parent();
 

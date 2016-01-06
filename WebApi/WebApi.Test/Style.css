@@ -20,7 +20,7 @@
         
         table {border:1px solid #ccc;border-collapse:collapse;width:100%;table-layout:fixed;}
         td,th {border:1px solid #ccc;word-wrap:break-word;}
-        .sp {padding-right:10px;width:100px;display:block;float:left;clear:left;}
+        .sp {padding-right:10px;width:60px;display:inline-block;clear:left;}
 
 /*datetimepicker使用到的css樣式
     調用datetimepicker方法:
