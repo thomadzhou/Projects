@@ -9,19 +9,19 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace WebApi.Data
 {
-    public class AutoPouringContext : DbContext
+    public class wapi_w_autopour_batchesContext : DbContext
     {
         /// 不自動建立數據庫
 
-        static AutoPouringContext()
+        static wapi_w_autopour_batchesContext()
         {
-            Database.SetInitializer<AutoPouringContext>(null);
+            Database.SetInitializer<wapi_w_autopour_batchesContext>(null);
         }  
-        public AutoPouringContext()
+        public wapi_w_autopour_batchesContext()
             : base("name=conn")
         {
         }
-        public DbSet<AutoPouring> AutoPouring { get; set; }
+        public DbSet<wapi_w_autopour_batches> wapi_w_autopour_batches { get; set; }
 
         ///移除將table名自動變複數的功能
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -11,12 +11,12 @@ namespace WebApi.Data.Repository
 {
     public interface IAutoPouringRepository
     {
-        IQueryable<AutoPouring> GetAllAutoPouring();
-        IQueryable<AutoPouring> GetAutoPouringByResin(string resin);
-        IQueryable<AutoPouring> GetAutoPouringByID(int id);
-        IQueryable<AutoPouring> GetAutoPouring(string begTimes, string endTimes, string resin);
-        void Insert(AutoPouring autoPouring);
-        void Update(AutoPouring autoPouring);
+        IQueryable<wapi_w_autopour_batches> GetAllAutoPouring();
+        IQueryable<wapi_w_autopour_batches> GetAutoPouringByResin(string resin);
+        IQueryable<wapi_w_autopour_batches> GetAutoPouringByID(int id);
+        IQueryable<wapi_w_autopour_batches> GetAutoPouring(string begTimes, string endTimes, string resin);
+        void Insert(wapi_w_autopour_batches autoPouring);
+        void Update(wapi_w_autopour_batches autoPouring);
         void Delete(int id);
         bool SaveAll();
     }

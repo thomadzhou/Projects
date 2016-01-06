@@ -49,9 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoPouringContext.cs" />
+    <Compile Include="wapi_w_autopour_batchesContext.cs" />
     <Compile Include="CustomersContext.cs" />
-    <Compile Include="Entities\AutoPouring.cs" />
+    <Compile Include="Entities\wapi_w_autopour_batches.cs" />
     <Compile Include="Entities\Customers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AutoPouringRepository.cs" />

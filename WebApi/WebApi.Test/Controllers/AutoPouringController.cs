@@ -13,34 +13,34 @@ namespace WebApi.Test.Controllers
 {
     public class AutoPouringController : ApiController
     {
-        IAutoPouringRepository repository = new AutoPouringRepository(new AutoPouringContext());
-        public List<AutoPouring> GetAll()
+        IAutoPouringRepository repository = new AutoPouringRepository(new wapi_w_autopour_batchesContext());
+        public List<wapi_w_autopour_batches> GetAll()
         {
             return repository.GetAllAutoPouring().ToList();
         }
 
-        public List<AutoPouring> GetAutoPouringByID(int id)
+        public List<wapi_w_autopour_batches> GetAutoPouringByID(int id)
         {
-            List<AutoPouring> items = repository.GetAutoPouringByID(id).ToList();
+            List<wapi_w_autopour_batches> items = repository.GetAutoPouringByID(id).ToList();
             if (items == null)
                 throw new HttpRequestException(HttpStatusCode.NotFound.ToString());
             return items;
             //return repository.GetCustomerbyID(id).ToList();
         }
-        public List<AutoPouring> GetAutoPouringByResin(string resin)
+        public List<wapi_w_autopour_batches> GetAutoPouringByResin(string resin)
         {
-            List<AutoPouring> items = repository.GetAutoPouringByResin(resin).ToList();
+            List<wapi_w_autopour_batches> items = repository.GetAutoPouringByResin(resin).ToList();
             if (items == null)
                 throw new HttpRequestException(HttpStatusCode.NotFound.ToString());
             return items;
             //return repository.GetCustomerbyID(id).ToList();
         }
 
-        public List<AutoPouring> GetAutoPouring([FromUri]string begTimes, [FromUri]string endTimes, [FromUri]string resin)
+        public List<wapi_w_autopour_batches> GetAutoPouring([FromUri]string begTimes, [FromUri]string endTimes, [FromUri]string resin)
         {
             try
             {
-                List<AutoPouring> items = repository.GetAutoPouring(begTimes, endTimes, resin).ToList();
+                List<wapi_w_autopour_batches> items = repository.GetAutoPouring(begTimes, endTimes, resin).ToList();
                 if (items == null)
                     throw new HttpRequestException(HttpStatusCode.NotFound.ToString());
                 return items;
@@ -50,7 +50,7 @@ namespace WebApi.Test.Controllers
                 throw new HttpRequestException(HttpStatusCode.BadRequest.ToString(), ex);
             }
         }
-        public HttpResponseMessage Post([FromBody]AutoPouring autopouring)
+        public HttpResponseMessage Post([FromBody]wapi_w_autopour_batches autopouring)
         {
             if (autopouring == null)
                 Request.CreateErrorResponse(HttpStatusCode.BadRequest, "無法讀取數據!");
@@ -68,11 +68,11 @@ namespace WebApi.Test.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
             }
         }
-        public HttpResponseMessage Put(int id, [FromBody]AutoPouring autopouring)
+        public HttpResponseMessage Put(int id, [FromBody]wapi_w_autopour_batches autopouring)
         {
             try
             {
-                autopouring.SpcID = id;
+                autopouring.ID = id;
                 repository.Update(autopouring);
                 if (repository.SaveAll())
                     return Request.CreateResponse(HttpStatusCode.OK, "更改數據成功!");

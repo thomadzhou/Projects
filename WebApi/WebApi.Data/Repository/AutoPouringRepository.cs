@@ -15,27 +15,27 @@ namespace WebApi.Data.Repository
 {
     public class AutoPouringRepository:IAutoPouringRepository
     {
-        private AutoPouringContext _apc;
-        public AutoPouringRepository(AutoPouringContext apc)
+        private wapi_w_autopour_batchesContext _apc;
+        public AutoPouringRepository(wapi_w_autopour_batchesContext apc)
         {
             _apc=apc;
         }
-        public IQueryable<AutoPouring> GetAllAutoPouring()
+        public IQueryable<wapi_w_autopour_batches> GetAllAutoPouring()
         {
             _apc.Configuration.ProxyCreationEnabled = false;
-            return _apc.AutoPouring.AsQueryable();
+            return _apc.wapi_w_autopour_batches.AsQueryable();
         }
-        public IQueryable<AutoPouring> GetAutoPouringByID(int id)
+        public IQueryable<wapi_w_autopour_batches> GetAutoPouringByID(int id)
         {
             _apc.Configuration.ProxyCreationEnabled = false;
-            return _apc.AutoPouring.Where(a => a.SpcID.Equals(id));
+            return _apc.wapi_w_autopour_batches.Where(a => a.ID.Equals(id));
         }
-        public IQueryable<AutoPouring> GetAutoPouringByResin(string resin)
+        public IQueryable<wapi_w_autopour_batches> GetAutoPouringByResin(string resin)
         {
             _apc.Configuration.ProxyCreationEnabled = false;
-            return _apc.AutoPouring.Where(a => a.ResinNo.Contains(resin) || resin ==null);
+            return _apc.wapi_w_autopour_batches.Where(a => a.batch_item_name.Contains(resin) || resin ==null);
         }
-        public IQueryable<AutoPouring> GetAutoPouring(string begTimes, string endTimes, string resin)
+        public IQueryable<wapi_w_autopour_batches> GetAutoPouring(string begTimes, string endTimes, string resin)
         {
             _apc.Configuration.ProxyCreationEnabled = false;
             DateTimeFormatInfo dtFormat = new System.Globalization.DateTimeFormatInfo();
@@ -50,11 +50,11 @@ namespace WebApi.Data.Repository
             //                 && (a.ResinNo.Contains(resin) || resin == null);
 
             ///ef6中使用DbFunctions解決日期比較問題,使用System.Data.Objects.SqlClient.SqlFunctions會報錯
-            var query = from a in _apc.AutoPouring
-                        where (DbFunctions.TruncateTime(a.SampleTimes)>=begtime || begtime==null)
-                           && (DbFunctions.TruncateTime(a.SampleTimes)<=endtime|| endtime==null)
+            var query = from a in _apc.wapi_w_autopour_batches
+                        where (DbFunctions.TruncateTime(a.stop_time)>=begtime || begtime==null)
+                           && (DbFunctions.TruncateTime(a.stop_time)<=endtime|| endtime==null)
                            //&&   DbFunctions.DiffDays(a.SampleTimes,endtime)<=0  DbFunctions.
-                           && (a.ResinNo.Contains(resin) || resin == null)
+                           && (a.batch_item_name.Contains(resin) || resin == null)
                         select a;
                return query;
   
@@ -62,17 +62,17 @@ namespace WebApi.Data.Repository
             //var query = _apc.AutoPouring.Where(sqlstr.Compile()).AsQueryable();
 
         }
-        public void Insert(AutoPouring autoPouring)
+        public void Insert(wapi_w_autopour_batches autoPouring)
         {
 
-            _apc.AutoPouring.Add(autoPouring);
+            _apc.wapi_w_autopour_batches.Add(autoPouring);
 
         }
-        public void Update(AutoPouring autoPouring)
+        public void Update(wapi_w_autopour_batches autoPouring)
         {
             try
             {
-                _apc.Set<AutoPouring>().Attach(autoPouring);
+                _apc.Set<wapi_w_autopour_batches>().Attach(autoPouring);
                 _apc.Entry(autoPouring).State = EntityState.Modified;
                 //return true;
 
@@ -89,7 +89,7 @@ namespace WebApi.Data.Repository
             try
             {
 
-                _apc.AutoPouring.Remove(_apc.AutoPouring.Find(id));
+                _apc.wapi_w_autopour_batches.Remove(_apc.wapi_w_autopour_batches.Find(id));
 
             }
             catch

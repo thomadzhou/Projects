@@ -85,7 +85,6 @@
     <Content Include="Scripts\jquery-ui-slide.min.js" />
     <Content Include="Scripts\jquery-ui-timepicker-addon.js" />
     <Content Include="Scripts\jquery-ui.js" />
-    <Content Include="test.html" />
     <Content Include="Scripts\datetime.js" />
     <Content Include="Style.css" />
     <Content Include="index.html" />

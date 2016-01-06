@@ -61,39 +61,45 @@
 			var resin = encodeURI($("#resin").val()).replace(/\+/g, '%2B');
             var inputstr = "begTimes=" + $("#begtime").val() + "&endTimes=" + $("#endtime").val() + "&resin=" + resin;
             $.ajax({
-                url: "http://10.6.21.57/api/autopouring/?" + inputstr,
-                //url: "http://10.6.21.57/api/autopouring/",
+                url: "http://localhost:23735/api/autopouring/?" + inputstr,
+                //url: "http://localhost:23735/api/autopouring/",
                 type: "GET",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     $("#autopouringTable").find("tr:gt(0)").remove();
                     $.each(data, function (key, val) {
                         var tableRow = '<tr> ' +
-                                        '<td>' + val.SpcID + '</td>' +
-                                        addtd(val.SampleTimes.replace("T"," ")) +
-                                        addtd(val.ResinNo) +
-                                        addtd(val.SetRate) +
-                                        addtd(val.Aname) +
-                                        addtd(val.A) +
-                                        addtd(val.Bname) +
-                                        addtd(val.B) +
-                                        addtd(val.Cname) +
-                                        addtd(val.C) +
-                                        addtd(val.Dname) +
-                                        addtd(val.D) +
-                                        addtd(val.Ename) +
-                                        addtd(val.E) +
-                                        addtd(val.Fname) +
-                                        addtd(val.F) +
-                                        addtd(val.Gname) +
-                                        addtd(val.G) +
-                                        addtd(val.Hname) +
-                                        addtd(val.H) +
-                                        addtd(val.Iname) +
-                                        addtd(val.I) +
-                                        addtd(val.Jname) +
-                                        addtd(val.J) +
-                                        addtd(val.TotalRate) +
+                                        '<td>' + val.ID + '</td>' +
+                                        addtd(val.organization_id) +
+                                        addtd(val.machine_no) +
+                                        addtd(val.batch_job) +
+                                        addtd(val.batch_item_name) +
+                                        addtd(val.batch_item_std) +
+                                        addtd(val.batch_item_desc) +
+                                        addtd(val.batch_qty) +
+                                        addtd(val.stop_time.replace("T"," ")) +
+                                        addtd(val.pipe_A_name) +
+                                        addtd(val.pipe_A_qty) +
+                                        addtd(val.pipe_B_name) +
+                                        addtd(val.pipe_B_qty) +
+                                        addtd(val.pipe_C_name) +
+                                        addtd(val.pipe_C_qty) +
+                                        addtd(val.pipe_D_name) +
+                                        addtd(val.pipe_D_qty) +
+                                        addtd(val.pipe_E_name) +
+                                        addtd(val.pipe_E_qty) +
+                                        addtd(val.pipe_F_name) +
+                                        addtd(val.pipe_F_qty) +
+                                        addtd(val.pipe_G_name) +
+                                        addtd(val.pipe_G_qty) +
+                                        addtd(val.pipe_H_name) +
+                                        addtd(val.pipe_H_qty) +
+                                        addtd(val.pipe_I_name) +
+                                        addtd(val.pipe_I_qty) +
+                                        addtd(val.pipe_J_name) +
+                                        addtd(val.pipe_J_qty) +
+                                        addtd(val.pipe_K_name) +
+                                        addtd(val.pipe_K_qty) +
                                         '<td nowrap><input type="button" name="btnUpdate" value="修改" /> <input type="button" name="btnDelete" value="删除" id=' + val.SpcID + ' /></td>' +
                                         '</tr>';
                         $('#autopouringTable').append(tableRow);
@@ -145,7 +151,7 @@
 
     <script type="text/javascript">
         /* $(function () {
-             $.getJSON("http://10.6.21.57/api/autopouring", LoadCustomers);
+             $.getJSON("http://localhost:23735/api/autopouring", LoadCustomers);
          });*/
 
 
@@ -183,7 +189,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: 'http://10.6.21.57/api/AutoPouring/',
+                url: 'http://localhost:23735/api/AutoPouring/',
                 data: data,
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
@@ -195,7 +201,7 @@
                     $("#a").val('');
                     $("#bname").val('');
                     $("#b").val('');
-                    //$.getJSON("http://10.6.21.57/api/customers", LoadCustomers);
+                    //$.getJSON("http://localhost:23735/api/customers", LoadCustomers);
                     alert(results);
                 }
             }).fail(
@@ -243,7 +249,7 @@
             //alert(data);
             $.ajax({
                 type: 'PUT',
-                url: 'http://10.6.21.57/api/AutoPouring/' + spcId,
+                url: 'http://localhost:23735/api/AutoPouring/' + spcId,
                 data: data,
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
@@ -264,7 +270,7 @@
 
             $.ajax({
                 type: 'DELETE',
-                url: 'http://10.6.21.57/api/AutoPouring/' + spcId,
+                url: 'http://localhost:23735/api/AutoPouring/' + spcId,
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
                 success: function (results) {
